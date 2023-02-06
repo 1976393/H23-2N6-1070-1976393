@@ -43,7 +43,7 @@ compteur = 0
 for index in texte_split:
     if len(index) > 9:
         compteur += 1
-        print(index)
+        #print(index)
         if compteur <2:
             print("Excellent")
         else:
