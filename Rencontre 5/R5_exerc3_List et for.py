@@ -21,7 +21,7 @@ for index in range(10):
 # Imprimez la liste générée ci-dessus
 # Dans le terminal la réponse commence par: " Q1: Voici la liste: ...."  #
 print(f"Q1{80*'_'}")
-
+print(liste_chiffres)
 
 
 

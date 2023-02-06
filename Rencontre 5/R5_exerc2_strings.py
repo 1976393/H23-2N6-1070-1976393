@@ -1,3 +1,4 @@
+from cgitb import text
 import utilitaire_gen_Q as util_r5
 
 # Q1 Une liste d'employés a été passée dans une variable. 
@@ -15,7 +16,17 @@ import utilitaire_gen_Q as util_r5
 print(f"Q1{80*'_'}")
 liste_employee = util_r5.liste_employes
 nouvelle_liste = list()
+for employee in liste_employee:
+    Nom_employee = employee[3:len(employee)-2]
+    nouvelle_liste.append(Nom_employee)
+print(nouvelle_liste)
+    
 
+    
+
+#employee = liste_employee[0]
+#employee = employee[3:len(employee)-2]
+#print(employee)
 
 
 
@@ -27,8 +38,19 @@ nouvelle_liste = list()
 # Vous allez devoir faire un .split() sur le texte obtenu pour avoir chaque mot dans une liste.
 print(f"Q2{80*'_'}")
 texte = input("Entrez texte : ")
-
-
+texte_split = texte.split(" ")
+compteur = 0
+for index in texte_split:
+    if len(index) > 9:
+        compteur += 1
+        print(index)
+        if compteur <2:
+            print("Excellent")
+        else:
+            print("Attention au niveau du texte")
+            
+        
+        
 
 
 
@@ -41,6 +63,16 @@ texte = input("Entrez texte : ")
 #                       Z mots de 8 lettres et plus
 # Pour éviter de tester inutilement la longueur, vous DEVEZ absolument utiliser la structure: if...elif...else 
 print(f"Q3{80*'_'}")
-
+compteur_moins_3ltrs = 0
+compteur_entre4_7 = 0
+compteur_plus_7ltr = 0
+for index in texte_split:
+    if len(index) <= 3:
+        compteur_moins_3ltrs += 1
+    elif len(index) >=4 and len(index) <=7:
+        compteur_entre4_7 += 1
+    else:
+        compteur_plus_7ltr += 1
+print(f"{compteur_moins_3ltrs} de 3 lettres et moins, {compteur_entre4_7} de 4 à 7 lettres et {compteur_plus_7ltr} mots de 8 lettres et plus")
 
         

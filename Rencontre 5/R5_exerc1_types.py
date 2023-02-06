@@ -6,10 +6,14 @@ import utilitaire_gen_Q as util_r5
 #                      -et qui convertie l'input en int si possible. 
 # Indice : pour pouvez utiliser la fonction  dir(str)  pour obtenir toutes les méthodes
 # des objets str... une de ces méthodes devrait vous aider... vous ne trouverez pas la méthode exact dans vos notes de cours. 
-print(f"Q1{80*'_'}")
+#print(f"Q1{80*'_'}")
+dir(str)
 age = input("Entrez votre age : ")
-
-
+if not age.isnumeric():
+    print(f"ERREUR - âge non-valide")
+else:
+    age = int(age)
+     
 
 
 print(util_r5.annee_de_naissance(age)) # imprime l'année de naissance si age est bien un int.
@@ -21,6 +25,7 @@ print(util_r5.annee_de_naissance(age)) # imprime l'année de naissance si age es
 print(f"Q2{80*'_'}")
 var1,var2,var3,var4,var5,var6 = util_r5.generation_variable()
 
-
+print(f"{var1}{type(var1)}, {var2}{type(var2)}, {var3}{type(var3)}, {var4}{type(var4)}, {var5}{type(var5)}, {var6}{type(var6)}")
+ 
 
 #
