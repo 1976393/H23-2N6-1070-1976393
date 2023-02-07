@@ -10,13 +10,13 @@
 #    Vous accumulerez les chiffres entrés pour en faire le total
 #    Après 5 entrées correctes par l'usager, sortez de la boucle
 #    Remerciez l'usager d'avoir entré 5 chiffres entre 400 et 800
-#    Pensez à augmenter le nombre de questions demandées et le total avec le bon chiffre entré
-
+#    Pensez à augmenter le nombre de questions demandées et le total avec le bon chiffre 
 #    Après la boucle, calculez la moyenne
 #    Et finalement imprimez le résultat suivant, qui va varier évidemment selon des chiffres entrés:
 #                Q1: Merci d'avoir entré 5 chiffres entre 400 et 800
 #                    Le total des chiffres entrés est de 3000.
 #                    La moyenne de ces chiffres est de 600.0
+
 
 # Dans la boucle While, si le chiffre entré est entre 400 et 800, affichez
 #                         "Merci vous avez entré le chiffre X, qui est entre 400 et 800 comme demandé." 
@@ -24,6 +24,21 @@
 # Sinon, continuez à demander un nombre entre 400 et 800 en affichant le message suivant: 
 #                          "Vous avez entré X. On a besoin de 5 nombres entre 400 et 800. SVP recommencez." #
 
+
+# cpt = 0
+# number = ""
+# while not cpt == 5:
+#     number = input("Entrer un chiffre entre 400 et 800: ")
+#     if number.isnumeric() and int(number) > 400 and int(number) < 800:
+#         cpt += 1
+#         total += int(number)
+#         print(f"Merci vous avez entre le chiffre {number}, qui est entre 400 et 800 comme demandé.")
+#     else:
+#         print(f"Vous avez entré {number}. On a besoin de 5 nombres entre 400 et 800. SVP recommencez")
+# moyenne = total / 5
+# print(f"Q1: Merci d'avoir entré 5 chiffres entre 400 et 800, le total des chiffres entrés est de {total} et la moyenne de ces chiffres est de {moyenne}")
+
+   
 
 
 
@@ -38,4 +53,18 @@
 #     Sinon demandez-lui d'entrer à nouveau une couleur
 
 #     Donnez 3 chances à l'usager d'entrer la bonne couleur
+cpt = 0
+couleur_demande = "Jaune"
+couleur2 = ""
+while not cpt == 3:
+    couleur2 = input("Entrez une couleur: ")
+    if couleur_demande.capitalize() == couleur2.capitalize():
+        print("Vous avez entré la bonne couleur")
+        break
+    else:
+        cpt+= 1
+        print("Vous avez entré la mauvaise couleur")
 
+
+
+    
