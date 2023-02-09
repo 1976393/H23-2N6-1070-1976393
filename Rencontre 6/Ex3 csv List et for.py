@@ -19,7 +19,6 @@ import csv
 with open("Ex3 Competences.csv","r",encoding="utf-8") as csv_file:
     csv_reader =  csv.reader(csv_file, delimiter="/")
     next(csv_reader)
-    
     for line in csv_reader:
         if line[-1] == "Exigé":
             print(line)

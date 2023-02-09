@@ -3,7 +3,7 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 # Importez csv
 
-
+import csv
  
 
 # Vous utiliserez encore le fichier "Ex4 Lan Party.csv"
@@ -15,9 +15,17 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 #         Si besoin, des instructions détaillées sont données plus bas
 
-
-
-
+with open("Ex4 lan Party.csv","r",encoding="utf-8") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=";")
+    path = os.getcwd()
+    next(csv_reader)
+    for line in csv_reader:
+        os.mkdir(f"{path}/{line[0]}")
+       
+        for folders in range(1,len(line)):
+            os.chdir(f"{path}\\{line[0]}\\")
+            new_path = os.getcwd()
+            os.mkdir(f"{new_path}\\{line[folders][:20].replace(':', '_')}")
 
 
 
