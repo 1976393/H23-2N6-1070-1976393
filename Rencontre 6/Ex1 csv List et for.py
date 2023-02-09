@@ -8,7 +8,7 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 # Importez csv
 
-
+import csv
  
 
 # Regardez le contenu du fichier "Ex1 Emplois Reseautique.csv"
@@ -23,7 +23,14 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 #  Si vous êtes à l'aise en programmation allez-y
 #  Des instructions détaillées sont données plus bas
 
+with open("Ex1 Emplois Reseautique.csv","r",encoding="utf-8") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=";")
+    next(csv_reader)
+    for line in csv_reader:        
+        if line[4] == "Dec" or line[4] == "Non déterminé":
+            print(line)
 
+    
 
 
 
