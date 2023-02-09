@@ -25,9 +25,10 @@ with open("Ex4 lan Party.csv","r",encoding="utf-8") as csv_file:
     next(csv_reader)
     liste_jeux = []
     for line in csv_reader:
-        for game in range(1, len(line)):
-            if liste_jeux.count(line[game]) == 0:
-                liste_jeux.append(line[game])
+        for game in line[1:]:
+            if liste_jeux.count(game) == 0:
+                liste_jeux.append(game)
+                liste_jeux.sort()
     print(liste_jeux)
             
 
