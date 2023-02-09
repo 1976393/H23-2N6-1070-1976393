@@ -1,9 +1,10 @@
+from email.encoders import encode_noop
 import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
 
 # Importez csv
 
-
+import csv
  
 
 # Regardez le contenu du fichier "Ex2 Stages.csv"
@@ -17,6 +18,16 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 #  Si vous êtes à l'aise en programmation allez-y
 #  Des instructions détaillées sont données plus bas
 
+with open("Ex2 Stages.csv","r",encoding="utf-8") as csv_file1:
+    with open("Ex2 Stages TI.csv", "w", encoding="utf-8") as csv_file2:
+        first_line =["Compagnie","Ville","Voie de sortie"]
+        csv_reader = csv.reader(csv_file1,delimiter="|")
+        csv_writer = csv.writer(csv_file2, delimiter="|", lineterminator="\n")
+        next(csv_reader)
+        csv_writer.writerow(first_line)
+        for line in csv_reader:
+            if line[2] == "TI":
+                csv_writer.writerow(line)
 
 
 
