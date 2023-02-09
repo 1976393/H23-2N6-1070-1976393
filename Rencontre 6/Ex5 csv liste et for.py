@@ -1,9 +1,10 @@
-import os                             # N'enlevez pas ces lignes.
+import os
+from xml.etree.ElementInclude import DEFAULT_MAX_INCLUSION_DEPTH                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
 
 # Importez csv
 
-
+import csv
  
 
 # Vous utiliserez encore le fichier "Ex4 Lan Party.csv"
@@ -19,7 +20,16 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 #         Si besoin, des instructions détaillées sont données plus bas
 
-
+with open("Ex4 lan Party.csv","r",encoding="utf-8") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=";")
+    next(csv_reader)
+    liste_jeux = []
+    for line in csv_reader:
+        for game in range(1, len(line)):
+            if liste_jeux.count(line[game]) == 0:
+                liste_jeux.append(line[game])
+    print(liste_jeux)
+            
 
 
 
