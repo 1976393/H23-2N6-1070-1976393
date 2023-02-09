@@ -16,7 +16,13 @@ import csv
 #  Si vous êtes à l'aise en programmation allez-y
 #  Des instructions détaillées sont données plus bas
 
-
+with open("Ex3 Competences.csv","r",encoding="utf-8") as csv_file:
+    csv_reader =  csv.reader(csv_file, delimiter="/")
+    next(csv_reader)
+    
+    for line in csv_reader:
+        if line[-1] == "Exigé":
+            print(line)
 
 
 

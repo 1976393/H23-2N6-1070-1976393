@@ -16,7 +16,12 @@ import csv
 #          Imprimez la liste des Lan Party dans lesquels votre jeu préféré est parmi leurs Tops
 # 
 #           Aucune instruction détaillée n'est donnée plus bas
-
-
+with open("Ex4 lan Party.csv","r", encoding="utf-8") as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=";")
+    next(csv_reader)
+    for line in csv_reader:
+        for game in range(len(line)):
+            if line[game] == "Valorant":
+                print(line)
 
 
