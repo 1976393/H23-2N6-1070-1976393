@@ -13,24 +13,26 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 
 
 ### - Q1) Faites une demande de 25 produits 
-
+texte = requests.get(f'{BASE_URL}/products?_quantity=25')
+print(texte)
 
 
 
  
 ##  Q2) Utilisez json.dumps et
 ## indent pour obtenir 4 niveaux d'imbication des éléments de la réponse
-
+texte_dumps = json.dumps(texte.json(),indent=4)
+print(texte_dumps)
 
 
 #  Q3)  changer un string en un dictionnaire avec json.load
 # using json.loads() method
-
-
+dict = json.loads(texte_dumps)
+print(dict)
 
 
 # Q4)  Obtenez la liste des produits à partir de la clé 'data' du dictionnaire obtenu en Q3
-
+liste_data = dict["data"]
 
 
 # Q5)  Créez vous deux variables initialisées à 0 au départ. 
@@ -43,8 +45,17 @@ BASE_URL = 'https://fakerapi.it/api/v1'
 #      Après la boucle calculez la moyenne
 #      Finalement imprimez le résultat, qui pourrait ressembler à ceci: 
 #            "Parmi les 25 produits que j'ai obtenu, il y a 6 produits dans la catégorie 3 et leur prix moyen est de 12328.94$"
+total_prix = 0
+cpt = 0
+cpt2 = 0
+for item in liste_data:
+    cpt2 += 1
+    if 3 in item["categories"] and float(item["price"]) < 100000:
+        total_prix += float(item["price"])
+        cpt += 1
+moyenne = total_prix / cpt
+print(f'Parmi les 25 produits que j \'ai obtenu, il y a {cpt} produits dans la catégorie 3 et leur prix moyen est de {float(moyenne)}')
+print(cpt2)
 
-
-
-
+print(len(liste_data))
 
