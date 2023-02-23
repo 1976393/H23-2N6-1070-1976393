@@ -20,7 +20,7 @@ base_url="https://fakestoreapi.com"
 #          faites un message comme quoi il faut entrer un nombre entre 1 et 10
 
 #   La fonction doit retourner les carts obtenu avec la requête get du site webs. Mais seulement si le nombre de carts demandés est entre 1 et 10
-def requests_carts(Nb_carts):
+def requests_carts(Nb_carts="None"):
     if Nb_carts == "None":
         print("Veuillez entrer un nombre de cart")
     else:
@@ -32,7 +32,9 @@ def requests_carts(Nb_carts):
             req = requests.get(f'{base_url}/products?limit={Nb_carts}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
+            return(donne_req_dump)
             print(donne_req_dump)
+            
 
 
 
@@ -48,7 +50,7 @@ def requests_carts(Nb_carts):
 
 #   La fonction doit retourner le nombre de produits demandés, si le nombre est entre 1 et 10
 
-def request_products(Nb_produits):
+def request_products(Nb_produits="None"):
      if Nb_produits == "None":
         print("Veuillez entrer un nombre de cart")
      else:
@@ -63,14 +65,16 @@ def request_products(Nb_produits):
             req = requests.get(f'{base_url}/products?limit={Nb_produits}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
+            return(donne_req_dump)
             print(donne_req_dump)
         else:
             req = requests.get(f'{base_url}/products?limit={Nb_produits}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
+            return(donne_req_dump)
             print(donne_req_dump)
+            
 
-requests_carts(1)
 
 
 

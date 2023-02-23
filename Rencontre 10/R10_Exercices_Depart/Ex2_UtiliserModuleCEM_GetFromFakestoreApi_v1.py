@@ -53,17 +53,18 @@ req.request_products(3)
 #           Commencez par imprimer la liste des trois produits 
 #                   puis voyez la clé qui vous permettra d'obtenir le nom du produit
 
-product_ls = []
-product_ls.append(req.request_products(3))
-print(product_ls)
+
 
 print(80*'_')
 # Q2 B Imprimez la liste des noms de ces trois produits 
+ls_produits = req.request_products(3)
+print(ls_produits)
 
-#for item in product_ls["title"]:
-    #print(item)
 
 
+
+for item in ls_produits:
+        print(item["title"])
 print(80*'_')
 # Q3 A   Utilisez la méthode request_carts de votre module pour obtenir 1 cart 
 
