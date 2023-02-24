@@ -29,10 +29,11 @@ def requests_carts(Nb_carts="None"):
         elif not Nb_carts <11 or not Nb_carts >0:
             print(f'Veuillez entrer un nombre de carts entre 1 et 10, votre demande : {Nb_carts}')
         else:
-            req = requests.get(f'{base_url}/products?limit={Nb_carts}')
+            req = requests.get(f'{base_url}/carts?limit={Nb_carts}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
-            return(donne_req_dump)
+            data = json.loads(donne_req_dump)
+            return(data)
             print(donne_req_dump)
             
 
@@ -65,14 +66,16 @@ def request_products(Nb_produits="None"):
             req = requests.get(f'{base_url}/products?limit={Nb_produits}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
-            return(donne_req_dump)
-            print(donne_req_dump)
+            data = json.loads(donne_req_dump)
+            return(data)
         else:
             req = requests.get(f'{base_url}/products?limit={Nb_produits}')
             donne_req = req.json()
             donne_req_dump = json.dumps(donne_req,indent=4)
-            return(donne_req_dump)
-            print(donne_req_dump)
+            data = json.loads(donne_req_dump)
+            return(data)
+            
+           
             
 
 

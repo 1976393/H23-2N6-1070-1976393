@@ -58,17 +58,15 @@ req.request_products(3)
 print(80*'_')
 # Q2 B Imprimez la liste des noms de ces trois produits 
 ls_produits = req.request_products(3)
-print(ls_produits)
-
-
-
-
 for item in ls_produits:
         print(item["title"])
+
+
+
 print(80*'_')
 # Q3 A   Utilisez la méthode request_carts de votre module pour obtenir 1 cart 
-
-
+ls_carts = req.requests_carts(1)
+print(ls_carts)
 
 
 #           Commencez par imprimer la liste du cart obtenu
@@ -77,7 +75,8 @@ print(80*'_')
 
 
 # Q3 B   Imprimez le nombre de produits qu'il y a dans ce cart
-
+for item in ls_carts:
+        print(item["products"])
 
 
 
@@ -87,7 +86,9 @@ print(80*'_')
 
 
 # Q4 A Utilisez la méthode request_carts de votre module pour obtenir 6 carts
-
+ls_carts6 = req.requests_carts(6)
 
 
 # Q4 B Pour chaque cart id, imprimez le nombre de produits de ce cart 
+for carts in ls_carts6:
+        print(carts["products"])
