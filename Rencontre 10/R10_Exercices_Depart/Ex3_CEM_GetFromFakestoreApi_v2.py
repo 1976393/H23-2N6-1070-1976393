@@ -15,7 +15,15 @@ base_url="https://fakestoreapi.com"
 
 # La fonction retournera le nombre d'objet du type désiré en autant que le type est products, carts ou user
 
-
+def request_from(typ_obj, Nb_obj=1):
+    if typ_obj == "products" or typ_obj == "carts" or typ_obj == "users":
+        req = requests.get(f'{base_url}/{typ_obj}?limit={Nb_obj}')
+        donne_req = req.json()
+        donne_req_dumps = json.dumps(donne_req)
+        data = json.loads(donne_req_dumps)
+        return data
+    else:
+        print("Veuillez entrer un objet valide")
 
 
          
@@ -25,6 +33,10 @@ base_url="https://fakestoreapi.com"
 # Lorsqu'il est exécuté en tant que script, ce fichier devrait faire une requête pour 1 seule produit.
 # Puis il devrait imprimer un message dans le terminal indiquant si la requête à été un success ou nom.
 
-
+# if __name__ == '__main__':
+#     request_from(input(),1)
+# else:
+#     print("Aucune reuquete achemine")
+        
 
 
