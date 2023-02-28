@@ -26,16 +26,16 @@ def csv_data_extract():
             dict_clients = {"userId":"","nom":"","prenom":"","commande":[{"productId":"","quantite":[{}]}]}
             dict_clients.update({"userId": ls[0],"nom":ls[1],"prenom":ls[2]})
             liste_commande = []
-            cpt = 0
+            cpt = 1
             for info in ls[3:]:
-                if not info == 0:
-                    dict = {"productId":"","quantite":""}
-                    dict.update({"productId":cpt,"quantite":info})
-                    liste_commande.append(dict)
-                    cpt+=1
+                dict = {"productId":"","quantite":""}
+                dict.update({"productId":cpt,"quantite":info})
+                liste_commande.append(dict)
+                cpt+=1
             dict_clients.update({"commande":liste_commande})
             ls_clients.append(dict_clients) 
-        print(ls_clients)
+        #print(ls_clients)
+        return (ls_clients)
         
         
 csv_data_extract()
