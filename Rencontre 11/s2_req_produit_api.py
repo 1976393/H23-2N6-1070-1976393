@@ -50,5 +50,6 @@ def addition_info():
                     info[ls]["commande"][dict["productId"]-1].update(categorie)
     # indented_data = json.dumps(info,indent=4)
     # print(indented_data)
+    # print(info)
     return(info)
-# addition_info()
+addition_info()

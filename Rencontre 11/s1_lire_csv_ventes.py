@@ -53,5 +53,5 @@ def csv_data_extract():
         return (ls_clients)
         
         
-csv_data_extract()
+# csv_data_extract()
       
