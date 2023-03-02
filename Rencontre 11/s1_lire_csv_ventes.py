@@ -42,7 +42,7 @@ def csv_data_extract():
             #- Augmentation du compteur
             for info in ls[3:]:
                 dict = {"productId":"","quantite":""}
-                dict.update({"productId":cpt,"quantite":info})
+                dict.update({"productId":cpt,"quantite":int(info)})
                 liste_commande.append(dict)
                 cpt+=1
             #Ajout des informations de commande au dictionnaire de client
@@ -54,4 +54,3 @@ def csv_data_extract():
         
         
 # csv_data_extract()
-      
