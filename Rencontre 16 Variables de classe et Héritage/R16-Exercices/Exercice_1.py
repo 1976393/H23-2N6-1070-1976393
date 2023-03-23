@@ -52,7 +52,7 @@ print(guardien_Logan_Ketterer.nb_arrets)
 
 class Equipe(Joueur):
     nb_joueur = 0
-    def __init__(self, nbr_joueurs_dans_ligue,nom_equipe,liste_joueurs) -> None:
+    def __init__(self, nbr_joueurs_dans_ligue,nom_equipe,liste_joueurs = []) -> None:
         self.nbr_joueurs_ligue = nbr_joueurs_dans_ligue
         self.liste_joueurs = liste_joueurs
         self.nom_equipe = nom_equipe
@@ -66,4 +66,5 @@ class Equipe(Joueur):
 cf_montreal = Equipe(3, "cf_montreal", ["Joueur1","Joueur2","Joueur3"])
 print(cf_montreal.liste_joueurs)
 cf_montreal.ejecter_joueur(1)
+cf_montreal.engager_joueur("Bob")
 print(cf_montreal.liste_joueurs)
