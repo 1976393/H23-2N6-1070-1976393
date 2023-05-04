@@ -1,6 +1,6 @@
 import customtkinter as ctk
 import tkinter as tk
-from tkinter import ttk
+from tkinter import END, ttk
 
 import os
 from PIL import ImageTk, Image   
@@ -17,15 +17,58 @@ prix_total = 0
 
 #  VOIR ÉNONCÉ
 def ajouter_smarin():
-    pass
+    global prix_total
+    global ta_commande
+    local_price_marin = 0
+
+    if chk_smarin.get() == "1":
+        if size_smarin.get() == "10":
+            if choix_smarin.get() == "steak":
+                local_price_marin += 14.99
+            elif choix_smarin.get() == "pepperoni":
+                local_price_marin += 14.99
+            else:
+                local_price_marin += 15.99
+        else:
+            if choix_smarin.get() == "steak":
+                local_price_marin += 16.99
+            elif choix_smarin.get() == "pepperoni":
+                local_price_marin += 16.99
+            else:
+                local_price_marin += 17.99
+        prix_total += local_price_marin
+        ta_commande += f'Un sous marin {choix_smarin.get()}{size_smarin.get()} : {local_price_marin}\n'
 
 #  VOIR ÉNONCÉ               
 def ajouter_pizza():
-    pass
+    global prix_total
+    global ta_commande
+    local_price_pizza = 0
+    if chk_pizza.get() == "1":
+        if size_pizza.get() == "7":
+            if choix_pizza.get() == "nature":
+                local_price_pizza += 14.99
+            elif choix_pizza.get() == "végétarienne":
+                local_price_pizza += 14.99
+            else:
+                local_price_pizza += 16.99
+        else:
+            if choix_pizza.get() == "nature":
+                local_price_pizza += 16.99
+            elif choix_pizza.get() == "végétarienne":
+                local_price_pizza += 16.99
+            else:
+                local_price_pizza += 18.99
+        prix_total += local_price_pizza
+        ta_commande += f'Une pizza {choix_pizza.get()}{size_pizza.get()} : {local_price_pizza}\n'
 
 #  VOIR ÉNONCÉ               
 def ajouter():
-    pass
+    global prix_total
+    ajouter_smarin()
+    ajouter_pizza()
+    displayBox.delete(0.0,END)
+    displayBox.insert(0.0,f"{ta_commande}\n      Pour un total de {prix_total}")
 
     
 window.rowconfigure((0,1,2,3), weight=1, minsize=150)
@@ -84,7 +127,7 @@ smarin14po = ttk.Radiobutton(frm_smarin_choix, text='14"', variable=size_smarin,
 smarin10po.grid(row=5, column=0,padx=2,pady=2,sticky="w")
 smarin14po.grid(row=6, column=0,padx=2,sticky="w")
 
-btn_voir_ajout_smarin = ttk.Button(frm_sousmarin, text="Ajouter")
+btn_voir_ajout_smarin = ttk.Button(frm_sousmarin, text="Ajouter",command= ajouter)
 btn_voir_ajout_smarin.grid(column=2, row=3, sticky='w') 
 
 
@@ -133,7 +176,7 @@ pizza14po = ttk.Radiobutton(frm_pizza_choix, text='14"', variable=size_pizza, va
 pizza7po.grid(row=5, column=0,padx=2,pady=2,sticky="w")
 pizza14po.grid(row=6, column=0,padx=2,sticky="w")
 
-btn_voir_ajout_pizza = ttk.Button(frm_pizza, text="Ajouter")
+btn_voir_ajout_pizza = ttk.Button(frm_pizza, text="Ajouter",command= ajouter)
 btn_voir_ajout_pizza.grid(column=2, row=3, sticky='w') 
 
 
